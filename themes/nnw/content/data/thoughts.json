@@ -1,0 +1,20 @@
+[
+    {
+        "id": 0,
+        "src": "/assets/img/thoughts/blog.png",
+        "title": "POST",
+        "category": "OPINION",
+        "topic": "Fostering a colab culture, to create agency security.",
+        "button": "Read",
+        "url": "tst"
+    },
+    {
+        "id": 1,
+        "src": "/assets/img/thoughts/blog.png",
+        "title": "POST",
+        "category": "OPINION",
+        "topic": "Fostering a colab culture, to create agency security.",
+        "button": "Read",
+        "url": "tst"
+    },
+]

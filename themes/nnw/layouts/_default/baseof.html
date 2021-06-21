@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+    {{- partial "head.html" . -}}
+    <body>
+        <div class="preloader">
+            <div class="spinner-border " role="status">
+            </div>
+            <img src="/assets/img/nav-logo.png" class="preloader-img" alt="">
+        </div>
+        {{- partial "header.html" . -}}
+        <div class="contact-ribbon norwester">
+            <a href="/contact" class="text-red">CONTACT</a>
+        </div>
+        <div id="content">
+        {{- block "main" . }}{{- end }}
+        </div>
+        {{- partial "footer.html" . -}}
+
+        <script src="/assets/js/bootstrap.bundle.min.js"></script>
+        <script src="/assets/js/jquery.min.js"></script>
+        <script src="/assets/js/slick.js"></script>
+        <script src="/assets/js/main.js"></script>
+        <script>
+            $(document).ready(function(){
+            
+            $('.services-slider').slick({
+                slidesToShow: 3,
+                slidesToScroll: 1,
+                infinite: true,
+                speed:500,
+                autoplay: false,
+                centerMode: true,
+                arrows: false,
+                responsive: [
+                    {
+                        breakpoint: 768,
+                        settings: {
+                            slidesToShow: 1,
+                            centerMode: true,
+                            autoplay: true
+                        }
+                    },
+                ]
+            });
+        });
+        </script>
+        <script>
+            window.onload = function() {
+                if (window.innerWidth > 767) {
+                    gsap.registerPlugin(ScrollTrigger);
+                    gsap.from('.fadeInDown1', {
+                        duration: 1, 
+                        delay: 1, 
+                        y: -100, 
+                        opacity: 0 
+                    })
+                    gsap.from('.expandIt', { scrollTrigger:  { trigger: ".expandIt", start: "0px 65%" }, duration: 1, delay: 0, y: 0, width: "0px", scale: 0 })
+                    gsap.from('.fadeInOneByOne', { scrollTrigger:  { trigger: ".fadeInOneByOne", start: "0px 65%" }, duration: 1, stagger: 0.3,  delay: 1, y: 0, opacity: 0 })
+                }
+            }
+
+            $('.service-card').click(function (e) {
+                e.stopPropagation();
+                $('.service-card').css('background-color','#E05858');
+                $('.service-card').css('color','#fff');
+                $(this).css('background-color','#fff');
+                $(this).css('color','#E05858');
+            });
+            $(document).mouseup(function(e) {
+                var container = $(".service-card");
+                // if the target of the click isn't the container nor a descendant of the container
+                if (!container.is(e.target) && container.has(e.target).length === 0) 
+                {
+                    $('.service-card').css('background-color','#E05858');
+                    $('.service-card').css('color','#fff');
+                    $('.service-specialist').html('Specialists in each business pillar, we partner with leadership teams to build growth plans built on the specific needs of each business.');
+                }
+            });
+            $('.service-card-culture').click(function () {
+                $('.service-specialist').html('Culture diagnostic and change, Internal DNA and principles, Team mentoring, Talent planning and HR advisory, Graduate placement');
+            });
+            $('.service-card-product').click(function () {
+                $('.service-specialist').html('Positioning and value proposition, Process and tools audit, Technology audit, Productisation and innovation, Future planning, Pitch optimisation');
+            });
+            $('.service-card-commercial').click(function () {
+                $('.service-specialist').html('Commercial diagnostic and modelling, Outcome realisation, Client relationship, Capitalisation, Exit-ready accounts and advisory');
+            });
+        </script>
+    </body>
+</html>
