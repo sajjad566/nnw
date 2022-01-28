@@ -1,4 +1,4 @@
-# nnw
+# Now Next Why
 
 ### Developed Using
 Hugo CMS and Bootstrap
