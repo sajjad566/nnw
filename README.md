@@ -4,4 +4,4 @@
 Hugo CMS and Bootstrap
 
 ### Online Link
-https://nownextwhy.co.uk/
+https://now-next-why-version-2-website.netlify.app/
